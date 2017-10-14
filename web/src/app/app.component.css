@@ -1,0 +1,7 @@
+.selected {
+  font-weight: bold;
+}
+
+.col-2, .col-3, .col-4 {
+  padding: 5px;
+}

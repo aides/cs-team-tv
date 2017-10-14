@@ -1,0 +1,8 @@
+<table class="table table-striped">
+  <tr *ngFor="let build of builds" [ngClass]="getClassDefinition(build)">
+    <td class="text-nowrap">{{build.repository | shortener }}</td>
+    <td>{{getBranch(build)}}</td>
+    <td>{{build.user | initials }}</td>
+    <td class="text-nowrap">{{build.startTime | date:'shortTime' }}</td>
+  </tr>
+</table>

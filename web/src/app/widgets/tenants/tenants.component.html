@@ -1,0 +1,9 @@
+<table class="table table-striped">
+  <tr *ngFor="let tenant of tenants" [ngClass]="getClassDefinition(tenantStatus[tenant.tenantName])">
+    <td>{{tenant.upgradeChannel | initials }}</td>
+    <td>
+      {{tenant.tenantName}}
+      <span class="badge badge-success">{{tenant.deploymentRegion}}</span>
+    </td>
+  </tr>
+</table>

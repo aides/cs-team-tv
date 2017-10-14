@@ -1,0 +1,7 @@
+<table class="table table-striped">
+  <tr *ngFor="let issue of issues" [ngClass]="getClassDefinition(issue)">
+    <td class="text-nowrap">{{issue.key}}</td>
+    <td>{{issue.summary}}</td>
+    <td>{{issue.status}}</td>
+  </tr>
+</table>

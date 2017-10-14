@@ -1,0 +1,6 @@
+<table class="table table-striped">
+  <tr *ngFor="let pr of prs" [ngClass]="getClassDefinition(pr)">
+    <td>{{pr.repository | shortener }}</td>
+    <td>{{pr.name}}</td>
+</tr>
+</table>

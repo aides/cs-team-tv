@@ -1,28 +1,45 @@
-# CsTeamTv
+# CS Team TV Dashboard
 
-This project was generated with [Angular CLI](https://github.com/angular/angular-cli) version 1.2.7.
+## Description
 
-## Development server
+Simple site to display CircleCI build statuses, custom tenant statuses, Cloud Jira issues and open GitHub PRs.
 
-Run `ng serve` for a dev server. Navigate to `http://localhost:4200/`. The app will automatically reload if you change any of the source files.
+## How to run
 
-## Code scaffolding
+Make sure to create an `env.list` based on `env.list.tpl`.
 
-Run `ng generate component component-name` to generate a new component. You can also use `ng generate directive|pipe|service|class|guard|interface|enum|module`.
+### In a container
 
-## Build
+1. `./build.sh && ./run.sh`
+1. Go to `http://localhost:9050`
 
-Run `ng build` to build the project. The build artifacts will be stored in the `dist/` directory. Use the `-prod` flag for a production build.
+### Serve web from API
 
-## Running unit tests
+1. `./build.sh`
+1. `cd ./api`
+1. `npm start`
+1. Go to `http://localhost:9050`
 
-Run `ng test` to execute the unit tests via [Karma](https://karma-runner.github.io).
+### Serve Web and API separately
 
-## Running end-to-end tests
+1. `cd ./web`
+1. `ng serve`
+1. `cd ../api`
+1. `npm start`
+1. Go to `http://localhost:4200`
 
-Run `ng e2e` to execute the end-to-end tests via [Protractor](http://www.protractortest.org/).
-Before running the tests make sure you are serving the app via `ng serve`.
+## Ideas list
 
-## Further help
-
-To get more help on the Angular CLI use `ng help` or go check out the [Angular CLI README](https://github.com/angular/angular-cli/blob/master/README.md).
+* Show what is broken on tenant
+* Number of issues in sprint ToDo/InProgress/Done
+* Number of bugs (Probably a line chart over time)
+* Number of the week
+* Shared Environment (clusters) status
+* Team Members Statuses (In Office / Out / Vacation / OOF / WFH)
+* Tenant Error Rate, RPS, 99p request duration
+* FireMeter
+* Next Meeting Reminder
+* Topic/Quote/Meme of the day (e.g. from Slack)
+* Add symbol to issues with flags
+* Pending comments
+* Pending questions in Slack
