@@ -1,0 +1,21 @@
+.fs-overlay {
+  position: absolute;
+  left: 0;
+  right: 0;
+  top: 0;
+  bottom: 0;
+  z-index: 99;
+}
+
+.fs-overlay .fs-text {
+  position: relative;
+  font-size: 120px;
+  font-weight: bold;
+  text-align: center;
+  vertical-align: center;
+  top: 5%;
+}
+
+.fs-overlay .fs-text .fs-text-small {
+  font-size: 40px;
+}
