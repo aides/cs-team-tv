@@ -18,9 +18,9 @@ export class BuildStatusComponent implements OnInit {
 
   getClassDefinition(build) {
     return {
-      'table-danger': build.failed,
-      'table-info': build.status === 'queued ',
-      'table-success': build.status === 'success' || build.status === 'fixed',
+      'table-danger': build.status === 'failed',
+      'table-info': build.status === 'pending',
+      'table-success': build.status === 'success',
       'table-warning': build.status === 'running',
     };
   }

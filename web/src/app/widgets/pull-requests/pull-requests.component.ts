@@ -1,5 +1,5 @@
 import { Component, OnInit } from '@angular/core';
-import { GithubService } from '../../services/github.service';
+import { RepositoryService } from '../../services/repository.service';
 
 @Component({
   selector: 'cs-pull-requests',
@@ -11,16 +11,16 @@ export class PullRequestsComponent implements OnInit {
 
   getClassDefinition(pr) {
     return {
-      'table-danger': pr.state !== 'unstable' && pr.state !== 'clean',
-      'table-warning': pr.state === 'unstable',
-      'table-success': pr.state === 'clean'
+      'table-danger': pr.state !== 'unchecked' && pr.state !== 'can_be_merged',
+      'table-warning': pr.state === 'unchecked',
+      'table-success': pr.state === 'can_be_merged'
     };
   }
 
-  constructor(private githubService: GithubService) { }
+  constructor(private repoService: RepositoryService) { }
 
   ngOnInit() {
-    this.githubService.getPullRequests()
+    this.repoService.getPullRequests()
       .subscribe((prs) => {
         this.prs = prs;
       });

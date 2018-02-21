@@ -8,10 +8,9 @@ export class ConfigService {
 
   private configUri = `${environment.proxyHost}/config`;
 
-  private circleCIToken: string = null;
-  private gitHubToken: string = null;
-  private gitHubOrg: string = null;
-  private gitHubRepos: string[] = null;
+  private repositoryToken: string = null;
+  private repositoryUrl: string = null;
+  private repositoryIds: string[] = null;
 
   constructor(private http: Http) { }
 
@@ -19,35 +18,26 @@ export class ConfigService {
     return this.http.get(this.configUri).do((data) => {
       const res = data.json();
 
-      this.circleCIToken = res.circleCIToken;
-      this.gitHubToken = res.gitHubToken;
-      this.gitHubOrg = res.gitHubOrg;
-      this.gitHubRepos = res.gitHubRepos;
+      this.repositoryToken = res.repositoryToken;
+      this.repositoryUrl = res.repositoryUrl;
+      this.repositoryIds = res.repositoryIds;
     });
   }
 
-  getCircleCIToken(): Observable<string> {
-    if (this.circleCIToken) {
-      return Observable.of(this.circleCIToken);
-    }
-
-    return this.loadConfig().map(() => this.circleCIToken);
-  }
-
-  getGitHubConfig(): Observable<any> {
-    if (this.gitHubToken) {
+  getRepositoryConfig(): Observable<any> {
+    if (this.repositoryToken) {
       return Observable.of({
-        token: this.gitHubToken,
-        org: this.gitHubOrg,
-        repos: this.gitHubRepos,
+        url: this.repositoryUrl,
+        token: this.repositoryToken,
+        repos: this.repositoryIds,
       });
     }
 
     return this.loadConfig().map(() => {
       return {
-        token: this.gitHubToken,
-        org: this.gitHubOrg,
-        repos: this.gitHubRepos,
+        url: this.repositoryUrl,
+        token: this.repositoryToken,
+        repos: this.repositoryIds,
       };
     });
   }

@@ -13,10 +13,9 @@ app.get('/', function (req, res) {
 });
 
 const config = {
-  circleCIToken: process.env.CIRCLECI_TOKEN,
-  gitHubToken: process.env.GITHUB_TOKEN,
-  gitHubOrg: process.env.GITHUB_ORG,
-  gitHubRepos: process.env.GITHUB_REPOS ? String(process.env.GITHUB_REPOS).split(',') : [],
+  repositoryUrl: process.env.REPO_URL,
+  repositoryToken: process.env.REPO_TOKEN,
+  repositoryIds: process.env.REPO_IDS ? String(process.env.REPO_IDS).split(',') : [],
   opsUrl: process.env.OPS_URL,
   opsToken: process.env.OPS_TOKEN,
   jiraUrl: process.env.JIRA_URL,

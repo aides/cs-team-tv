@@ -14,7 +14,7 @@ import { TenantService } from './services/tenant.service';
 import { IssuesComponent } from './widgets/issues/issues.component';
 import { IssueService } from './services/issue.service';
 import { PullRequestsComponent } from './widgets/pull-requests/pull-requests.component';
-import { GithubService } from './services/github.service';
+import { RepositoryService } from './services/repository.service';
 import { InitialsPipe } from './shared/initials.pipe';
 import { ShortenerPipe } from './shared/shortener.pipe';
 import { HeaderComponent } from './widgets/header/header.component';
@@ -61,7 +61,7 @@ import { FullScreenRefresherComponent } from './widgets/full-screen-refresher/fu
     BuildService,
     TenantService,
     IssueService,
-    GithubService,
+    RepositoryService,
   ],
   bootstrap: [AppComponent]
 })
